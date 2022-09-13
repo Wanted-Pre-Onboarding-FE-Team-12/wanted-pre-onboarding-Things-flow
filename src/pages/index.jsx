@@ -1,13 +1,43 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import Layout from '@layouts/index';
 
+import IssueLists from '@components/IssueLists';
+
+import IssueContext from '@store/issueStore';
+import { useIntersect } from '@hooks/useIntersect';
+
 const IndexPage = () => {
+  const [pageCount, setPageCount] = useState(1);
+
+  const { getIssueCount, getIssueList, issueList, issueCount, isLoading } =
+    useContext(IssueContext);
+  const isLast = issueCount === issueList.length;
+
+  const ref = useIntersect(async (entry, observer) => {
+    observer.unobserve(entry.target);
+    if (!isLoading && !isLast) {
+      loadMore();
+    }
+  });
+
+  function loadMore() {
+    setPageCount(prev => prev + 1);
+  }
+
+  useEffect(() => {
+    getIssueCount();
+    getIssueList({ page: pageCount });
+  }, [pageCount]);
+
   return (
     <Layout>
       <Wrapper>
-        <MainContet></MainContet>
+        <MainContet>
+          <IssueLists issues={issueList} />
+          <div ref={ref} />
+        </MainContet>
       </Wrapper>
     </Layout>
   );
