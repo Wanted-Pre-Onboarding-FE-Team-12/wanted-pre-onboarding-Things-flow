@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Layout from '@layouts/index';
 
-import IssueLists from '@components/IssueLists';
+import IssueLists from './components/IssueLists';
 
 import IssueContext from '@store/issueStore';
 import { useIntersect } from '@hooks/useIntersect';

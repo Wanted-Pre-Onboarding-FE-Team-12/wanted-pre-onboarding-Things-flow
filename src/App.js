@@ -1,6 +1,6 @@
-import IssuePage from '@pages/issue';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import IndexPage from './pages';
+import IndexPage from '@pages/Home';
+import IssuePage from '@pages/IssueDetail';
 
 function App() {
   return (
