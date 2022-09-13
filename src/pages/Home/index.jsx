@@ -46,7 +46,7 @@ const IndexPage = () => {
 const Wrapper = styled.div`
   display: flex;
   min-height: 85vh;
-  align-items: flex-start;
+
   flex-direction: row-reverse;
   @media screen and (max-width: ${props => props.theme.responsive.large}) {
     display: block;
@@ -57,8 +57,9 @@ const Wrapper = styled.div`
   }
 `;
 const MainContet = styled.div`
-  width: calc(100% - 230px - 7rem);
-  margin-right: 7rem;
+  width: calc(100% - 30rem);
+  margin: 0 auto;
+
   @media screen and (max-width: ${props => props.theme.responsive.large}) {
     width: 100%;
     margin-top: 2em;
