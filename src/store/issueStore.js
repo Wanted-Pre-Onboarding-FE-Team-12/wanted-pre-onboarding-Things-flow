@@ -4,8 +4,10 @@ import * as IssueApi from '@api/issueApi';
 const IssueContext = createContext({
   isLoading: false,
   issueList: [],
+  issueData: {},
   issueCount: '',
   getIssueList: () => {},
+  getIssueData: () => {},
   getIssueCount: () => {},
 });
 
@@ -13,6 +15,7 @@ export const IssueContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [issueList, setIssueList] = useState([]);
   const [issueCount, setIssueCount] = useState(0);
+  const [issueData, setIssueData] = useState({});
 
   const getIssueCount = async () => {
     try {
@@ -34,7 +37,25 @@ export const IssueContextProvider = ({ children }) => {
       setIsLoading(false);
     }
   };
-  const contextValue = { isLoading, issueCount, issueList, getIssueList, getIssueCount };
+
+  const getIssueData = async issueNumeber => {
+    try {
+      const response = await IssueApi.fetchSingleIssue(issueNumeber);
+      const { number, title, user, created_at, comments, body } = await response.data;
+      setIssueData({ number, title, user, created_at, comments, body });
+    } catch (error) {
+      alert(error);
+    }
+  };
+  const contextValue = {
+    isLoading,
+    issueCount,
+    issueList,
+    issueData,
+    getIssueList,
+    getIssueData,
+    getIssueCount,
+  };
 
   return <IssueContext.Provider value={contextValue}>{children}</IssueContext.Provider>;
 };
