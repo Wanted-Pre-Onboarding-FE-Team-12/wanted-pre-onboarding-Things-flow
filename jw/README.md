@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+# wanted-pre-onboarding-ThingsFlow 과제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 구현사항
 
-## Available Scripts
+### 이슈 목록 및 상세 화면 기능 구현
 
-In the project directory, you can run:
+(사진)
 
-### `npm start`
+### Context API를 활용한 API 연동
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+`/src/context/IssueContext`
+useReducer를 사용하여 state와 dispatch를 Context API에 제공하여 사용하였습니다. 해당 타입일 경우 dispatch를 통하여 해당 state를 갱신하고 loading과 error의 핸들링을 하였습니다.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+`/src/utils/asyncActionUtils`
+코드의 중복을 줄이고자 utils폴더에 asyncActionUitls를 작성하여 액션과 리듀서를 만드는 함수를 생성하였습니다.
 
-### `npm test`
+### 지정된 조건(open 상태, 코멘트 많은 순)에 맞게 데이터 요청 및 표시
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+open상태인 issue에 대해서 api를 호출하고 코멘트 순의 조회를 위해 url parameter에 제공하여 표시했습니다.
 
-### `npm run build`
+### 데이터 요청 중 로딩 표시
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+데이터 요청 중 로딩의 상태를 Context Api를 통해 제공받아 구현하였습니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### UI는 데스크톱, 모바일에서 보았을 때 모두 읽기 편하게 구현
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 추가 기능
 
-### `npm run eject`
+1. 다른 github 저장소도 OWNER/REPO 형태로 불러올 수 있음
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 기능 개선이 필요하다고 생각된는 점
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. api 호출 시 쓰로틀링을하여 여러번 호출을 방지할 수 있을 것 같다.
