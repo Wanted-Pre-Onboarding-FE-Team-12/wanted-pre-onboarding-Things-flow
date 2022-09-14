@@ -38,7 +38,7 @@ export const Wrapper = styled.section`
   max-width: 1000px;
   margin: 6rem auto 4rem auto;
   color: var(--contentTextColor);
-  /* info */
+
   .issue-info {
     padding: 4rem 0 1rem;
     h2 {
@@ -54,6 +54,7 @@ export const Wrapper = styled.section`
       }
     }
   }
+
   .issue-contents {
     background-color: var(--contentBgColor);
     padding: 2rem ${props => props.theme.sideSpace.contentLarge};

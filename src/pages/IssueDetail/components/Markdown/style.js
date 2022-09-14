@@ -12,7 +12,6 @@ ol {
   line-height: 1.7;
   font-weight: 300;
 }
-/* paragraph */
 p {
   font-size: 1.7rem;
   line-height: 1.7;
@@ -29,7 +28,7 @@ em {
   border-radius: 2px;
   color: rgb(125, 107, 113);
 }
-/* 반응형 */
+
 @media screen and (max-width: ${props => props.theme.responsive.small}) {
   padding: 2rem ${props => props.theme.sideSpace.contentSmall};
   p {
@@ -46,6 +45,7 @@ em {
 }
 `;
 
+// 코드 블럭
 export const CodeBlockWrapper = styled.code`
   margin: 0 0.1rem;
   padding: 0.1rem 0.35rem;
@@ -59,6 +59,8 @@ export const CodeBlockWrapper = styled.code`
     line-height: 1.4;
   }
 `;
+
+// 헤더 제목
 export const HeadingOne = styled.div`
   margin: 7rem 0 2rem;
   color: ${props => props.theme.colors.headingColor};

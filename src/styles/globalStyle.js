@@ -28,27 +28,8 @@ body {
   font-family: "Noto Sans KR";
   color: var(--textColor);
   margin: 0;
-  transition: all 0.2s ease-in;
 }
-  body.dark {
-    --bgColor: ${props => props.theme.colors.primary1};
-    --textColor: ${props => props.theme.colors.primary7};
-    --contentBgColor: ${props => props.theme.colors.primary2};
-    --contentTextColor: ${props => props.theme.colors.primary9};
-    --headingColor: ${props => props.theme.colors.primary6};
-    --linkColor: ${props => props.theme.colors.neonBlue};
-    --categoryBorderColor: ${props => props.theme.colors.primary4};
-    --boxShadow: ${props => props.theme.colors.boxShadow};
-    --smallBoxShadow: ${props => props.theme.colors.smallBoxShadow};
-    --regularFontWeight: ${props => props.theme.text.fontWeight1};
-    --boldFontWeight: ${props => props.theme.text.fontWeight3};
-    
-    background: var(--bgColor);
-    font-family: "Noto Sans KR";
-    color: var(--textColor);
-    margin: 0;
-    
-  }
+  
   article,
   aside,
   details,

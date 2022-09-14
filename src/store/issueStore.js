@@ -3,26 +3,27 @@ import * as IssueApi from '@api/issueApi';
 
 const IssueContext = createContext({
   isLoading: false,
-  issueList: [],
   issueData: {},
+  issueList: [],
   issueCount: '',
-  getIssueList: () => {},
   getIssueData: () => {},
+  getIssueList: () => {},
   getIssueCount: () => {},
 });
 
 export const IssueContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [issueData, setIssueData] = useState({});
   const [issueList, setIssueList] = useState([]);
   const [issueCount, setIssueCount] = useState(0);
-  const [issueData, setIssueData] = useState({});
 
-  const getIssueCount = async () => {
+  const getIssueData = async issueNumeber => {
     try {
-      const response = await IssueApi.fetchRepo();
-      setIssueCount(response.data.open_issues_count);
+      const response = await IssueApi.fetchSingleIssue(issueNumeber);
+      const { number, title, user, created_at, comments, body } = await response.data;
+      setIssueData({ number, title, user, created_at, comments, body });
     } catch (error) {
-      alert(error.response);
+      alert(error);
     }
   };
 
@@ -38,15 +39,15 @@ export const IssueContextProvider = ({ children }) => {
     }
   };
 
-  const getIssueData = async issueNumeber => {
+  const getIssueCount = async () => {
     try {
-      const response = await IssueApi.fetchSingleIssue(issueNumeber);
-      const { number, title, user, created_at, comments, body } = await response.data;
-      setIssueData({ number, title, user, created_at, comments, body });
+      const response = await IssueApi.fetchRepo();
+      setIssueCount(response.data.open_issues_count);
     } catch (error) {
-      alert(error);
+      alert(error.response);
     }
   };
+
   const contextValue = {
     isLoading,
     issueCount,

@@ -2,9 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import Layout from '@layouts/index';
-
 import IssueLists from './components/IssueLists';
-
 import IssueContext from '@store/issueStore';
 import { useIntersect } from '@hooks/useIntersect';
 
@@ -45,9 +43,8 @@ const IndexPage = () => {
 
 const Wrapper = styled.div`
   display: flex;
-  min-height: 85vh;
-
   flex-direction: row-reverse;
+  min-height: 85vh;
   @media screen and (max-width: ${props => props.theme.responsive.large}) {
     display: block;
     margin-top: 0;

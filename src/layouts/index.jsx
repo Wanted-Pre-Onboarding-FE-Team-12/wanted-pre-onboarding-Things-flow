@@ -1,8 +1,8 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import Header from '@components/Header';
 import siteData from '@constants/variables';
+import Header from '@components/Header';
 
 // CSS
 import GlobalStyle from '@styles/globalStyle';

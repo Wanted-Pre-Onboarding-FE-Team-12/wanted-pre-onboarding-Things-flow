@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import IssueThumbnail from '../IssueThumbnail';
 
+// CSS
 import * as S from './style';
 
 const IssuePreview = ({ issue }) => {

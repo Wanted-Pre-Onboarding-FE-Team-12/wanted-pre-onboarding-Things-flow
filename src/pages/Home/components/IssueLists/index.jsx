@@ -1,6 +1,7 @@
+import React from 'react';
+
 import IssuePreview from '../IssuePreview';
 import logo from '@assets/tf-logo.png';
-import React from 'react';
 
 // CSS
 import * as S from './style';
