@@ -122,6 +122,7 @@ Intersection Observer API를 사용하여 구현하였습니다. <br/>
 ### 2. 반응형 구현
 
 데스크탑과 모바일 환경에 맞게 반응형 화면을 구현하였습니다.
+
 ![responsive](/kh/public/img/responsive.gif)
 
 <br/>
